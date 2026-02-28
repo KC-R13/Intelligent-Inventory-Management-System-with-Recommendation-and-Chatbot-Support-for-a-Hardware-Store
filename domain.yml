@@ -1,0 +1,75 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - ask_products
+  - ask_availability
+  - ask_price
+  - ask_category
+  - ask_product_details
+  - search_product
+  - add_to_cart
+  - check_stock_level
+  - ask_help
+  - bot_challenge
+
+entities:
+  - product_name
+  - category
+  - quantity
+
+slots:
+  product_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: product_name
+
+  category:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: category
+
+  quantity:
+    type: float
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: quantity
+
+responses:
+  utter_greet:
+    - text: "👋 Welcome to **BuildPro Hardware Store**! I'm your inventory assistant.\n\nI can help you with:\n• 🔍 Searching for products\n• 📦 Checking availability & stock\n• 💰 Getting pricing information\n• 🗂️ Browsing product categories\n\nWhat can I help you find today?"
+
+  utter_goodbye:
+    - text: "Thanks for visiting BuildPro! 🔨 Come back anytime. Have a great project!"
+
+  utter_iamabot:
+    - text: "I'm BuildPro's inventory assistant, powered by Rasa! I specialize in building materials and hardware."
+
+  utter_ask_product_name:
+    - text: "Which product are you looking for? You can type a product name, category, or SKU number."
+
+  utter_default:
+    - text: "I'm not sure I understood that. Try asking me about:\n• Product availability (e.g., 'Is drill machine in stock?')\n• Pricing (e.g., 'Price of concrete mix')\n• Categories (e.g., 'Show me power tools')\n• Stock levels (e.g., 'How many hammers do you have?')"
+
+  utter_help:
+    - text: "Here's what I can do for you:\n\n🔍 **Find Products** — 'Do you have circular saws?'\n💰 **Check Prices** — 'What's the price of PVC pipe?'\n📦 **Stock Info** — 'Is cement available?'\n🗂️ **Browse Categories** — 'Show me electrical supplies'\n📋 **Product Details** — 'Tell me about the DeWalt drill'"
+
+actions:
+  - action_search_product
+  - action_check_availability
+  - action_check_price
+  - action_list_categories
+  - action_list_products_by_category
+  - action_check_stock_level
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

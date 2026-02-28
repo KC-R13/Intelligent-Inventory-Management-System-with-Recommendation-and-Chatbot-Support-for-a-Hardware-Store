@@ -1,0 +1,57 @@
+version: "3.1"
+
+rules:
+  - rule: Say hello
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Say goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Bot challenge
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  - rule: Help request
+    steps:
+      - intent: ask_help
+      - action: utter_help
+
+  - rule: List categories when browsing
+    steps:
+      - intent: ask_products
+      - action: action_list_categories
+
+  - rule: Browse by category
+    steps:
+      - intent: ask_category
+      - action: action_list_products_by_category
+
+  - rule: Check availability
+    steps:
+      - intent: ask_availability
+      - action: action_check_availability
+
+  - rule: Check price
+    steps:
+      - intent: ask_price
+      - action: action_check_price
+
+  - rule: Search product
+    steps:
+      - intent: search_product
+      - action: action_search_product
+
+  - rule: Check stock level
+    steps:
+      - intent: check_stock_level
+      - action: action_check_stock_level
+
+  - rule: Product details
+    steps:
+      - intent: ask_product_details
+      - action: action_search_product

@@ -1,0 +1,168 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hello
+      - hi
+      - hey
+      - good morning
+      - good afternoon
+      - howdy
+      - what's up
+      - hi there
+      - hey there
+
+  - intent: goodbye
+    examples: |
+      - bye
+      - goodbye
+      - see you
+      - take care
+      - farewell
+      - see you later
+      - thanks, bye
+      - that's all for now
+
+  - intent: affirm
+    examples: |
+      - yes
+      - yeah
+      - yep
+      - sure
+      - absolutely
+      - definitely
+      - correct
+      - right
+      - of course
+      - that's right
+
+  - intent: deny
+    examples: |
+      - no
+      - nope
+      - not really
+      - no thanks
+      - nah
+      - never mind
+      - cancel
+
+  - intent: ask_help
+    examples: |
+      - help
+      - help me
+      - what can you do
+      - what are your capabilities
+      - how does this work
+      - show me what you can do
+      - what can I ask you
+      - I need assistance
+
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - am I talking to an AI?
+      - is this a chatbot?
+
+  - intent: ask_products
+    examples: |
+      - what products do you have?
+      - show me your products
+      - what do you sell?
+      - list all products
+      - what items are available?
+      - show me everything you have
+      - what's in your inventory?
+      - do you carry building materials?
+      - tell me about your inventory
+      - what's available?
+
+  - intent: ask_category
+    examples: |
+      - show me [power tools](category)
+      - what [hand tools](category) do you have?
+      - I need [electrical supplies](category)
+      - show me [plumbing](category) products
+      - what's in the [lumber](category) section?
+      - browse [fasteners](category)
+      - list [concrete and masonry](category) products
+      - show me [safety equipment](category)
+      - I want to see [paint](category) products
+      - what [roofing](category) materials do you carry?
+      - show [hardware](category)
+      - list [tools](category)
+      - [adhesives](category) products
+
+  - intent: ask_availability
+    examples: |
+      - do you have [hammer](product_name)?
+      - is [drill](product_name) available?
+      - do you carry [cement](product_name)?
+      - is [pvc pipe](product_name) in stock?
+      - can I get [wood screws](product_name)?
+      - check if [circular saw](product_name) is available
+      - is [safety helmet](product_name) available?
+      - do you have [steel rod](product_name)?
+      - is [paint brush](product_name) in stock?
+      - can I find [measuring tape](product_name) here?
+      - is [wrench](product_name) available?
+      - do you carry [concrete mix](product_name)?
+      - is [wire cutter](product_name) in stock?
+      - availability of [ladder](product_name)
+      - is the [angle grinder](product_name) in stock?
+      - do you have [sandpaper](product_name)?
+
+  - intent: ask_price
+    examples: |
+      - how much is [hammer](product_name)?
+      - what's the price of [drill](product_name)?
+      - how much does [cement](product_name) cost?
+      - price of [pvc pipe](product_name)
+      - what does [circular saw](product_name) cost?
+      - give me the cost of [safety helmet](product_name)
+      - how much for [steel rod](product_name)?
+      - what's the rate of [concrete mix](product_name)?
+      - tell me the price of [measuring tape](product_name)
+      - how much is a [ladder](product_name)?
+      - what's [angle grinder](product_name) cost?
+      - price for [wood screws](product_name)
+      - how much do [gloves](product_name) cost?
+      - rate of [paint](product_name)
+
+  - intent: check_stock_level
+    examples: |
+      - how many [hammers](product_name) do you have?
+      - what's the stock level for [drill bits](product_name)?
+      - how much [cement](product_name) is left?
+      - stock count for [pvc pipe](product_name)
+      - how many units of [circular saw](product_name)?
+      - quantity available for [safety gloves](product_name)
+      - remaining stock of [concrete mix](product_name)
+      - how many [steel rods](product_name) are in stock?
+      - what's the inventory count for [paint](product_name)?
+
+  - intent: search_product
+    examples: |
+      - search for [hammer](product_name)
+      - find [drill](product_name)
+      - look up [cement](product_name)
+      - search [pvc pipe](product_name)
+      - I'm looking for [angle grinder](product_name)
+      - find me a [ladder](product_name)
+      - I need a [tape measure](product_name)
+      - looking for [wood screws](product_name)
+      - I want to buy [safety boots](product_name)
+      - find [tile adhesive](product_name)
+      - search for [wire](product_name)
+
+  - intent: ask_product_details
+    examples: |
+      - tell me more about [DeWalt drill](product_name)
+      - details on [Stanley hammer](product_name)
+      - what are the specs of [circular saw](product_name)?
+      - give me info on [safety helmet](product_name)
+      - product description for [concrete mix](product_name)
+      - specifications for [angle grinder](product_name)
+      - more info on [pvc pipe](product_name)
+      - description of [steel rod](product_name)
