@@ -19,6 +19,7 @@ models/*
 *.log
 rasa.db
 events.db*
+*.dot
 
 .env
 .example-env
