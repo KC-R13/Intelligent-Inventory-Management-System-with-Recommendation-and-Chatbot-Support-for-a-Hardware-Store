@@ -6,4 +6,4 @@ load_dotenv()
 
 
 DATABASE_URL = os.getenv("DATABASE_URL")
-CHATBOT_ENDPOINT = os.getenv("CHATBOT_ENDPOINT")
+RASA_WEBHOOK_URL = os.getenv("RASA_WEBHOOK_URL")
