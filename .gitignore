@@ -10,9 +10,8 @@ wheels/
 .venv
 .idea
 
-store/chatbot/.rasa
-store/chatbot/models/*
-!store/chatbot/models/.gitkeep
+.rasa
+models
 *.tar.gz
 .fingerprints
 

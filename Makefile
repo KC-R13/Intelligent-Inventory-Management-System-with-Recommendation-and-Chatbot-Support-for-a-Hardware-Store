@@ -1,9 +1,8 @@
-chatbot-train:
-	cd store/chatbot && uv run rasa train
-
-chatbot-run:
-	cmd /c start cmd /k "cd store/chatbot && uv run rasa run actions"
-	cmd /c start cmd /k "cd store/chatbot && uv run rasa run --enable-api --cors \"*\""
-	cmd /c start cmd /k "python -m http.server 8080"
-	timeout /t 3 /nobreak
-	cmd /c start http://localhost:8080/store/chatbot/simple_interface.html
+run-db:
+	docker start -a lahiru-store-db 2>nul || docker run \
+	  --name lahiru-store-db \
+	  -p 3306:3306 \
+	  -e MYSQL_DATABASE=store \
+	  -e MYSQL_ROOT_PASSWORD=password \
+	  -v lahiru-store-db-volume:/var/lib/mysql \
+	  mysql:9.5.0

@@ -6,7 +6,7 @@ stories:
       - intent: greet
       - action: utter_greet
       - intent: ask_products
-      - action: action_list_categories
+      - action: action_list_products
 
   - story: check product availability
     steps:
@@ -15,34 +15,15 @@ stories:
       - intent: ask_availability
       - action: action_check_availability
 
-  - story: ask price directly
-    steps:
-      - intent: ask_price
-      - action: action_check_price
-
-  - story: browse by category then ask price
-    steps:
-      - intent: ask_category
-      - action: action_list_products_by_category
-      - intent: ask_price
-      - action: action_check_price
-
   - story: search product
     steps:
       - intent: search_product
       - action: action_search_product
 
-  - story: check stock level
-    steps:
-      - intent: check_stock_level
-      - action: action_check_stock_level
-
   - story: availability then price
     steps:
       - intent: ask_availability
       - action: action_check_availability
-      - intent: ask_price
-      - action: action_check_price
 
   - story: help flow
     steps:
@@ -60,7 +41,5 @@ stories:
     steps:
       - intent: ask_product_details
       - action: action_search_product
-      - intent: ask_price
-      - action: action_check_price
       - intent: goodbye
       - action: utter_goodbye

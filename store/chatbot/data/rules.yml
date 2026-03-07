@@ -21,35 +21,20 @@ rules:
       - intent: ask_help
       - action: utter_help
 
-  - rule: List categories when browsing
+  - rule: List products
     steps:
       - intent: ask_products
-      - action: action_list_categories
-
-  - rule: Browse by category
-    steps:
-      - intent: ask_category
-      - action: action_list_products_by_category
+      - action: action_list_products
 
   - rule: Check availability
     steps:
       - intent: ask_availability
       - action: action_check_availability
 
-  - rule: Check price
-    steps:
-      - intent: ask_price
-      - action: action_check_price
-
   - rule: Search product
     steps:
       - intent: search_product
       - action: action_search_product
-
-  - rule: Check stock level
-    steps:
-      - intent: check_stock_level
-      - action: action_check_stock_level
 
   - rule: Product details
     steps:
