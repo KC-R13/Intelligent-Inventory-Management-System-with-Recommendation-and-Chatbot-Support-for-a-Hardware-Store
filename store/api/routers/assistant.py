@@ -7,9 +7,8 @@ from pydantic import BaseModel
 
 from store.general.configs import RASA_WEBHOOK_URL
 
-router = APIRouter()
+router = APIRouter(prefix='/assistant', tags=["assistant"])
 logger = logging.getLogger(__name__)
-
 
 
 class UserMessage(BaseModel):
@@ -24,7 +23,7 @@ class Reply(BaseModel):
 
 @router.post("/chat", response_model=List[Reply])
 async def chat(request: UserMessage):
-    return await send_to_rasa(request.uid , request.message)
+    return await send_to_rasa(request.uid, request.message)
 
 
 async def send_to_rasa(sender: str, message: str) -> List[Reply]:
