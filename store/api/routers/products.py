@@ -1,9 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
+from sqlalchemy.sql.expression import func
 
+from store.api.routers.auth import get_current_user
 from store.database.engine import Session
 from store.database.schema import Product
-from store.api.routers.auth import get_current_user
 
 router = APIRouter(prefix="/products", tags=["products"])
 
@@ -49,6 +50,14 @@ def _to_product_response(product: Product) -> ProductResponse:
 def list_products(skip: int = 0, limit: int = 20):
     with Session() as session:
         return [_to_product_response(p) for p in session.query(Product).offset(skip).limit(limit).all()]
+
+
+
+@router.get("/recommended", response_model=list[ProductResponse])
+def recommended_products():
+    with Session() as session:
+        products = session.query(Product).order_by(func.random()).limit(3).all()
+        return [_to_product_response(p) for p in products]
 
 
 @router.get("/{product_id}", response_model=ProductResponse)
