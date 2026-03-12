@@ -46,27 +46,17 @@ def _to_product_response(product: Product) -> ProductResponse:
     )
 
 
-@router.get("/", response_model=list[ProductResponse])
-def list_products(skip: int = 0, limit: int = 20):
+@router.get("", response_model=list[ProductResponse])
+def list_products(skip: int = 0, limit: int = 20, recommended: bool = False):
     with Session() as session:
-        return [_to_product_response(p) for p in session.query(Product).offset(skip).limit(limit).all()]
-
-
-
-@router.get("/recommended", response_model=list[ProductResponse])
-def recommended_products():
-    with Session() as session:
-        products = session.query(Product).order_by(func.random()).limit(3).all()
+        if recommended:
+            products = session.query(Product).order_by(func.random()).limit(3).all()
+        else:
+            products = session.query(Product).offset(skip).limit(limit).all()
         return [_to_product_response(p) for p in products]
 
 
-@router.get("/{product_id}", response_model=ProductResponse)
-def get_product(product_id: int):
-    with Session() as session:
-        return _to_product_response(_get_or_404(session, product_id))
-
-
-@router.post("/", response_model=ProductResponse, status_code=status.HTTP_201_CREATED)
+@router.post("", response_model=ProductResponse, status_code=status.HTTP_201_CREATED)
 def create_product(
     payload: ProductCreate,
     _current_user=Depends(get_current_user),
@@ -77,6 +67,13 @@ def create_product(
         session.commit()
         session.refresh(product)
         return _to_product_response(product)
+
+
+@router.get("/{product_id}", response_model=ProductResponse)
+def get_product(product_id: int):
+    with Session() as session:
+        return _to_product_response(_get_or_404(session, product_id))
+
 
 
 @router.patch("/{product_id}", response_model=ProductResponse)
