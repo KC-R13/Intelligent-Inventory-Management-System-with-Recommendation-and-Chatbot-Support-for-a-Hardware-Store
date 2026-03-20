@@ -4,7 +4,7 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 
-from .utils import find_product, get_stock_status
+from .utils import find_product
 
 
 class ActionCheckAvailability(Action):
@@ -33,23 +33,10 @@ class ActionCheckAvailability(Action):
             )
             return []
 
-        if product.stock == 0:
-            msg = (
-                f"❌ **{product.name}** is currently **out of stock**.\n\n"
-                "Would you like me to check for a similar product?"
-            )
-        elif product.stock <= 10:
-            msg = (
-                f"⚠️ **{product.name}** — {get_stock_status(product.stock)}\n"
-                f"Only {product.stock} unit(s) remaining! Order soon.\n"
-                f"💰 Price: ${product.price:.2f} per unit"
-            )
-        else:
-            msg = (
-                f"✅ **{product.name}** is available!\n"
-                f"📦 Stock: {product.stock} unit(s) in inventory\n"
-                f"💰 Price: ${product.price:.2f} per unit"
-            )
+        msg = (
+            f"**{product.name}** is available!\n"
+            f"Price: ${product.sell_price:.2f} per unit"
+        )
 
         dispatcher.utter_message(text=msg)
         return [SlotSet("product_name", product.name)]

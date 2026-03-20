@@ -4,7 +4,7 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 
-from .utils import find_product, get_stock_status
+from .utils import find_product
 
 
 class ActionSearchProduct(Action):
@@ -28,15 +28,14 @@ class ActionSearchProduct(Action):
         product = find_product(product_name)
         if not product:
             dispatcher.utter_message(
-                text=f"🔍 No results for **'{product_name}'**.\n\n"
+                text=f"No results for **'{product_name}'**.\n\n"
                      "Try a broader term or ask me to list all products."
             )
             return []
 
         msg = (
-            f"🔍 **{product.name}**\n\n"
-            f"Price: **${product.price:.2f}** per unit\n"
-            f"Stock: {get_stock_status(product.stock)}"
+            f"**{product.name}**\n\n"
+            f"Price: **${product.sell_price:.2f}** per unit\n"
         )
         dispatcher.utter_message(text=msg)
         return [SlotSet("product_name", product.name)]

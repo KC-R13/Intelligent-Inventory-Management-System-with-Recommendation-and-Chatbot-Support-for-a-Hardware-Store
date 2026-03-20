@@ -40,3 +40,13 @@ rules:
     steps:
       - intent: ask_product_details
       - action: action_search_product
+
+  - rule: Browse by category
+    steps:
+      - intent: ask_products_by_category
+      - action: action_list_by_category
+
+  - rule: Get recommendations
+    steps:
+      - intent: ask_recommendations
+      - action: action_get_recommendations

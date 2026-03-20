@@ -98,3 +98,40 @@ nlu:
       - specifications for [angle grinder](product_name)
       - more info on [pvc pipe](product_name)
       - description of [steel rod](product_name)
+
+  - intent: ask_products_by_category
+    examples: |
+      - show me [power tools](category)
+      - what's in [hand tools](category)?
+      - browse [electrical](category) supplies
+      - show [plumbing](category) products
+      - what [safety](category) equipment do you have?
+      - list [building materials](category)
+      - show me items in [power tools](category)
+      - what do you have in [hand tools](category)?
+      - I'm looking for [electrical](category) items
+      - products in the [plumbing](category) category
+      - show all [safety](category) gear
+      - what's available in [building materials](category)?
+      - browse by category
+      - show me categories
+      - what categories do you have?
+      - I want to browse by category
+
+  - intent: ask_recommendations
+    examples: |
+      - what do you recommend?
+      - what's popular?
+      - what are your best sellers?
+      - recommend something
+      - what should I buy?
+      - what are your top products?
+      - what's trending?
+      - give me recommendations
+      - what products are selling well?
+      - what's your most popular item?
+      - any suggestions?
+      - what do customers usually buy?
+      - show me recommended products
+      - what's worth buying?
+      - what are the hot items?

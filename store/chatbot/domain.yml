@@ -7,6 +7,8 @@ intents:
   - ask_availability
   - ask_product_details
   - search_product
+  - ask_products_by_category
+  - ask_recommendations
   - ask_help
   - bot_challenge
 
@@ -39,21 +41,26 @@ slots:
 
 responses:
   utter_greet:
-    - text: "Welcome to **Hardware Store**! I'm your chatbot assistant.\n\nI can help you with:\n• Searching for products\n• Checking availability & stock\n• Getting pricing information\n\nWhat can I help you find today?"
+    - text: "Welcome to **Hardware Store**! I'm your chatbot assistant.\n\nI can help you with:\n• Searching for products\n• Checking availability & stock\n• Getting pricing information\n• Browsing by category\n• Product recommendations\n\nWhat can I help you find today?"
 
   utter_goodbye:
-    - text: "Thanks for! 🔨 Come back anytime. Have a great project!"
+    - text: "Thanks for visiting! Come back anytime. Have a great project!"
 
   utter_iamabot:
     - text: "I'm your chatbot assistant."
 
   utter_help:
-    - text: "Here's what I can do for you:\n\n **Find Products** — 'Do you have circular saws?'\n **Stock Info** — 'Is cement available?'\n🗂 **Browse Categories** — 'Show me electrical supplies'\n **Product Details** — 'Tell me about the DeWalt drill'"
+    - text: "Here's what I can do for you:\n\n **Find Products** — 'Do you have circular saws?'\n **Stock Info** — 'Is cement available?'\n**Browse Categories** — 'Show me electrical supplies'\n **Product Details** — 'Tell me about the DeWalt drill'\n **Recommendations** — 'What do you recommend?' or 'What's popular?'"
+
+  utter_ask_category:
+    - text: "Which category are you interested in? For example: power tools, hand tools, electrical, plumbing, safety, or building materials."
 
 actions:
   - action_search_product
   - action_check_availability
   - action_list_products
+  - action_list_by_category
+  - action_get_recommendations
 
 session_config:
   session_expiration_time: 60
