@@ -3,7 +3,7 @@ import uvicorn
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from store.api.routers import assistant, auth, products
+from store.api.routers import assistant
 
 
 app = FastAPI()
@@ -15,8 +15,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 app.include_router(assistant.router)
-app.include_router(auth.router)
-app.include_router(products.router)
 
 
 def main():

@@ -75,13 +75,3 @@ class Recommendation(Base):
     reason = Column(Text)
     action_suggestion = Column(Text)
     generated_at = Column(DateTime, default=utcnow)
-
-
-class User(Base):
-    __tablename__ = "users"
-
-    id = Column(Integer, primary_key=True)
-    email = Column(String(255), unique=True, nullable=False)
-    hashed_password = Column(String(255), nullable=False)
-    created_at = Column(DateTime, default=utcnow)
-    updated_at = Column(DateTime, default=utcnow, onupdate=utcnow)
