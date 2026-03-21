@@ -21,7 +21,7 @@ class ActionListProducts(Action):
 
         if lines:
             msg = (
-                    f"🗂**Latest Products** ({len(products)} items)\n\n"
+                    f"**Latest Products** ({len(products)} items)\n\n"
                     + "\n".join(lines)
                     + "\n\nAsk me about pricing or availability for any item!"
             )
