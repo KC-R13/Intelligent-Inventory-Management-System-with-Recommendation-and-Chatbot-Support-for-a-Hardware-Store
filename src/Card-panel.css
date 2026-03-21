@@ -1,0 +1,25 @@
+.Card-container {
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: rgba(182, 154, 119, 0.925);
+    position: absolute;
+
+}
+
+.card {
+
+    width: 200px; 
+    height: 150px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+}
